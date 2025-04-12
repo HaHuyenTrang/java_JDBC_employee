@@ -358,31 +358,11 @@
             return input;
         }
 
-        // Method to input yes/no choice
-        public static boolean inputYesNo(String prompt) {
-            String input;
-            do {
-                System.out.print(prompt + " (y/n): ");
-                input = scanner.nextLine().trim().toLowerCase();
 
-                if (input.equals("y") || input.equals("n")) {
-                    break;
-                }
-
-                System.out.println("Lỗi: Vui lòng nhập 'y' hoặc 'n'");
-            } while (true);
-
-            return input.equals("y");
-        }
-
-        // Method to create a Department with integrated validation
         public static Department createDepartment() {
             System.out.println("\n=== THÊM PHÒNG BAN MỚI ===");
             Department department = new Department();
-
-            // Set auto-increment ID (sẽ được gán trong lớp quản lý sau)
-            department.setDepartmentId(0); // ID phòng ban này sẽ được gán khi thêm vào cơ sở dữ liệu hoặc trong logic quản lý
-
+            department.setDepartmentId(0);
             // Nhập tên phòng ban với kiểm tra
             department.setDepartmentName(inputDepartmentName());
 
@@ -396,59 +376,31 @@
             return department;
         }
 
-        // Method to create an Employee with integrated validation
+
         public static Employee createEmployee() {
             System.out.println("\n=== THÊM NHÂN VIÊN MỚI ===");
             Employee employee = new Employee();
-
-            // Set employee ID with validation
             employee.setEmployeeId(inputEmployeeId());
-
-            // Set employee name with validation
             employee.setEmployeeName(inputEmployeeName());
-
-            // Set email with validation
             employee.setEmail(inputEmail());
-
-            // Set phone number with validation
             employee.setPhoneNumber(inputPhoneNumber());
-
-            // Set gender with validation
             employee.setGender(inputGender());
-
-            // Set salary grade with validation
             employee.setSalaryGrade(inputSalaryGrade());
-
-            // Set salary with validation
             employee.setSalary(inputSalary());
-
-            // Set date of birth with validation
             employee.setDateOfBirth(inputDateOfBirth());
-
-            // Set address with validation
             employee.setAddress(inputAddress());
-
-            // Set employee status with validation
             employee.setStatus(inputEmployeeStatus());
-
-            // Department will be set in the management class
 
             System.out.println("Nhân viên đã được tạo thành công!");
             return employee;
         }
 
-        // Method to create an Account with integrated validation
+
         public static Account createAccount() {
             System.out.println("\n=== TẠO TÀI KHOẢN MỚI ===");
             Account account = new Account();
-
-            // Set username with validation
             account.setUsername(inputUsername());
-
-            // Set password with validation
             account.setPassword(inputPassword());
-
-            // Set status to active by default
             account.setStatus(Account.AccountStatus.ACTIVE);
 
             System.out.println("Tài khoản đã được tạo thành công!");

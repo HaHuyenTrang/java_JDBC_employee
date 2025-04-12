@@ -91,11 +91,11 @@ public class DepartmentUI {
                         d.getDepartmentId(), d.getDepartmentName(), d.getDescription(), d.getStatus());
             }
 
-            System.out.println("n: tiếp, p: lùi, q: thoát");
+            System.out.println("1: tiếp, 0: lùi, 00: thoát");
             String cmd = scanner.nextLine().toLowerCase();
-            if (cmd.equals("n") && page < totalPages) page++;
-            else if (cmd.equals("p") && page > 1) page--;
-            else if (cmd.equals("q")) break;
+            if (cmd.equals("1") && page < totalPages) page++;
+            else if (cmd.equals("0") && page > 1) page--;
+            else if (cmd.equals("00")) break;
         }
     }
 
