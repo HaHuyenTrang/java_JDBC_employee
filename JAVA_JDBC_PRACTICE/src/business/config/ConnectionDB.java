@@ -1,9 +1,6 @@
 package business.config;
 
-import java.sql.CallableStatement;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class ConnectionDB {
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
@@ -45,6 +42,16 @@ public class ConnectionDB {
             }
         }
     }
+    public static void closeConnection(Connection conn, Statement stmt, ResultSet rs) {
+        try {
+            if (rs != null) rs.close();
+            if (stmt != null) stmt.close();
+            if (conn != null) conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public static void main(String[] args) {
         Connection con = openConnection();
